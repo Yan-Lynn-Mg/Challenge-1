@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Interactive rating component</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Overpass', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #212121;
+    }
+
+    .container {
+        width: 400px;
+        height: 360px;
+        border-radius: 18px;
+        background-color: hsl(216, 12%, 8%);
+    }
+
+    .img-wrapper {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-div {
+        width: 200px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-wrapper {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-div {
+        width: 180px;
+        height: 30px;
+        border-radius: 20px;
+        background-color: hsl(213, 19%, 18%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-div p {
+        font-size: 15px;
+        color: hsl(25, 97%, 53%);
+    }
+
+    .footer-wrapper {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .thank-div {
+        text-align: center;
+        width: 89%;
+        height: 100px;
+    }
+
+    .thank-div h2 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 800;
+        padding-bottom: 9px;
+        color: hsl(0, 0%, 100%);
+    }
+
+    .thank-div p {
+        color: #666161;
+    }
+</style>
+
+<body>
+    <div class="container">
+
+        <div class="img-wrapper">
+            <div class="img-div">
+                <img src="./images/illustration-thank-you.svg">
+            </div>
+        </div>
+
+        <div class="text-wrapper">
+            <div class="text-div">
+                <p id="showRating">You selected 4 out of 5</p>
+            </div>
+        </div>
+
+        <div class="footer-wrapper">
+            <div class="thank-div">
+                <h2>Thank You!</h2>
+
+                <p>We appreciate you taking the time to give a rating.
+                    If you ever need more support, don't hesitate to
+                    get
+                    in touch!</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

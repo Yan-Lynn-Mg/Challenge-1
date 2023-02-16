@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #212121;
+    }
+
+
+    .container {
+      width: 400px;
+      height: 360px;
+      border-radius: 18px;
+      background-color: hsl(216, 12%, 8%);
+
+    }
+
+    .star-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: hsl(213, 19%, 18%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0 0 20px;
+    }
+
+    .star-icon img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .text {
+      width: 350px;
+      height: 137px;
+      margin-top: 25px;
+      padding-left: 25px;
+      font-family: 'Overpass', sans-serif;
+
+    }
+
+    .text h3 {
+      color: hsl(0, 0%, 100%);
+      font-size: 30px;
+      font-family: 'Overpass', sans-serif;
+    }
+
+    .text p {
+      font-size: 15px;
+      color: hsl(217, 12%, 63%);
+      padding-top: 10px;
+    }
+
+    .rating-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rating-num {
+      width: 300px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .item {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: hsl(213, 19%, 18%);
+      font-size: 15px;
+      color: hsl(216, 12%, 54%);
+      margin-left: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.7s;
+    }
+
+    .item:hover {
+      background-color: hsl(217, 12%, 63%);
+      color: hsl(0, 0%, 100%);
+      transition: 0.7s;
+    }
+
+    .item:last-child:hover {
+      background-color: hsl(25, 97%, 53%);
+      color: hsl(0, 0%, 100%);
+    }
+
+    .button-container {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+
+    .submitBtn {
+      border: none;
+      width: 300px;
+      height: 50px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      background-color: hsl(25, 97%, 53%);
+      transition: 0.7s;
+      user-select: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .submitBtn:hover {
+      background-color: hsl(0, 0%, 100%);
+      color: hsl(25, 97%, 53%);
+      transition: 0.7s;
+    }
+
+    .container {
+      width: 400px;
+      height: 360px;
+      border-radius: 18px;
+      background-color: hsl(216, 12%, 8%);
+    }
+
+    .img-wrapper {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .img-div {
+      width: 200px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text-wrapper {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text-div {
+      width: 180px;
+      height: 30px;
+      border-radius: 20px;
+      background-color: hsl(213, 19%, 18%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text-div p {
+      font-size: 15px;
+      color: hsl(25, 97%, 53%);
+    }
+
+    .footer-wrapper {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .thank-div {
+      text-align: center;
+      width: 89%;
+      height: 100px;
+    }
+
+    .thank-div h2 {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 800;
+      padding-bottom: 9px;
+      color: hsl(0, 0%, 100%);
+    }
+
+    .thank-div p {
+      color: #666161;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Rating state start -->
+
+  <div class="container">
+
+    <div class="star-icon">
+      <img src="./images/icon-star.svg" alt="">
+    </div>
+
+
+    <div class="text">
+
+      <h3>How did we do?</h3>
+
+      <p>Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!</p>
+
+    </div>
+
+    <div class="rating-wrap">
+      <div class="rating-num">
+
+        <div class="item ">
+          <span>1</span>
+        </div>
+        <div class="item ">
+          <span>2</span>
+        </div>
+        <div class="item ">
+          <span>3</span>
+        </div>
+        <div class="item ">
+          <span>4</span>
+        </div>
+        <div class="item ">
+          <span>5</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="button-container">
+
+      <a href="#" class="submitBtn">Submit</a>
+
+    </div>
+
+  </div>
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+  <!-- <div class="container">
+
+        <div class="img-wrapper">
+            <div class="img-div">
+                <img src="./images/illustration-thank-you.svg">
+            </div>
+        </div>
+
+        <div class="text-wrapper">
+            <div class="text-div">
+                <p id="showRating">You selected 4 out of 5</p>
+            </div>
+        </div>
+
+        <div class="thank-wrapper">
+            <div class="thank-div">
+                <h2>Thank You!</h2>
+
+                <p>We appreciate you taking the time to give a rating.
+                    If you ever need more support, don't hesitate to
+                    get
+                    in touch!</p>
+            </div>
+        </div>
+    </div> -->
+  <!-- Thank you state end -->
+
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Yan Lynn Mg</a>.
+  </div> -->
+  <script>
+    const buttons = document.getElementsByClassName("item");
+    const submitBtn = document.getElementsByClassName("submitBtn")[0];
+    const body = document.getElementsByTagName("body")[0];
+
+    const getValue = (event) => {
+      event.target.style.backgroundColor = "hsl(217, 12%, 63%)";
+      event.target.style.color = "white";
+      const Value = event.target.innerText;
+
+      submitBtn.addEventListener("click", () => {
+        body.innerHTML = ` <div class="container">
+
+        <div class="img-wrapper">
+            <div class="img-div">
+                <img src="./images/illustration-thank-you.svg">
+            </div>
+        </div>
+
+        <div class="text-wrapper">
+            <div class="text-div">
+                <p id="showRating">You selected ${Value} out of 5</p>
+            </div>
+        </div>
+
+        <div class="footer-wrapper">
+            <div class="thank-div">
+                <h2>Thank You!</h2>
+
+                <p>We appreciate you taking the time to give a rating.
+                    If you ever need more support, don't hesitate to
+                    get
+                    in touch!</p>
+            </div>
+        </div>
+    </div>`
+      })
+
+    }
+
+    for (const button of buttons) {
+      button.addEventListener("click", getValue);
+    }
+
+
+  </script>
+</body>
+
+</html>
